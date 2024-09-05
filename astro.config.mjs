@@ -14,6 +14,10 @@ export default defineConfig({
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   output: 'hybrid',
+  integrations: [
+    vercel(), // Add the Vercel adapter here
+    // Other integrations
+  ],
   image: {
     service: squooshImageService(),  // Switch to Sharp image service if necessary
     api: {
