@@ -1,0 +1,49 @@
+{
+  "site": {
+    "title": "T4 Translation",
+    "base_url": "https://pinwheel-astro.vercel.app",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "147",
+    "logo_height": "31",
+    "logo_text": "T4Translation"
+  },
+
+  "settings": {
+    "pagination": 6,
+    "summary_length": 100,
+    "blog_folder": "blog"
+  },
+
+  "call_to_action": {
+    "title": "Feel Free with our teams,we all here for you.",
+    "description": "At T4Translation, we’re committed to providing exceptional translation services with a personal touch. Our diverse and experienced team is always ready to assist you, ensuring that every detail is handled with care and precision. Whether you need help with a project or have questions, feel free to reach out—we’re here to make your experience smooth and stress-free. Contact us today, and let us be the bridge to your success.",
+    "button": {
+      "label": "Get Started Now",
+      "link": "/getstarted"
+    }
+  },
+
+  "disqus": {
+    "enable": true,
+    "shortname": "themefisher-template",
+    "settings": {}
+  },
+
+  "params": {
+    "footer_description": "It's a Platform for Translation Services, Build it By Professional Team.",
+    "email": "contact@T4Translation.com",
+    "location": "TunisiaOffice: Hammamet- Tunisia            LibyaOffice:   Tripoli- Libya- Dhahra Street",
+    "phone": "+216-00000000",
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2024 reserved by [Melki Yossri](https://www.linkedin.com/in/yossri-melki-b73647199/)"
+  },
+
+  "metadata": {
+    "meta_author": "Themefisher",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "pinwheel astro"
+  }
+}

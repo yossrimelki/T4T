@@ -1,0 +1,118 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Services",
+      "url": "/integrations",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Document translation",
+          "url": "/integrations"
+        },
+
+        {
+          "name": "Business translation",
+          "url": "/integrations"
+        },
+
+        {
+          "name": "Government translation",
+          "url": "/integrations"
+        }
+      ]
+    },
+    {
+      "name": "Areas",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Government",
+          "url": "/career"
+        },
+
+        {
+          "name": "Organization",
+          "url": "/career"
+        },
+
+        {
+          "name": "Education",
+          "url": "/career"
+        },
+        {
+          "name": "Media",
+          "url": "/career"
+        },
+        {
+          "name": "Legal and Business",
+          "url": "/career"
+        },
+        {
+          "name": "Sciences & technology",
+          "url": "/career"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "url": "/about"
+    },
+    {
+      "name": "Contact Us",
+      "url": "/contact"
+    },
+    {
+      "name": "Languages",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "English",
+          "url": "//"
+        },
+
+        {
+          "name": "Arabic",
+          "url": "//"
+        },
+
+        {
+          "name": "French",
+          "url": "//"
+        },
+        {
+          "name": "German",
+          "url": "//"
+        },
+        {
+          "name": "Other lgs",
+          "url": "//"
+        }
+      ]
+    }
+  ],
+
+  "footer": [
+    {
+      "name": "About",
+      "url": "/about"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    },
+    {
+      "name": "Elements",
+      "url": "/elements"
+    },
+    {
+      "name": "Changelog",
+      "url": "/changelog"
+    }
+  ]
+}
