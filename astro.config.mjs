@@ -3,7 +3,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import AutoImport from "astro-auto-import";
-import { defineConfig,squooshImageService } from "astro/config";
+import { defineConfig, squooshImageService } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
@@ -15,13 +15,13 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   output: 'hybrid',
   image: {
-    service: squooshImageService(),  // Switch to Sharp image service
+    service: squooshImageService(),  // Switch to Sharp image service if necessary
     api: {
       routes: [
         {
-          path: '/src/pages//api/send-mail.js',
+          path: '/src/pages/api/send-mail.js',
           method: 'POST',
-          handler: '/src/pages/api/send-mail.js',// Update this to point to your handler function
+          handler: '/src/pages/api/send-mail.js',
         },
       ],
     },
