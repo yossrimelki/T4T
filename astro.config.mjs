@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel'; // Make sure this package is correctly installed
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
@@ -9,8 +10,8 @@ import remarkToc from 'remark-toc';
 import config from './src/config/config.json';
 
 export default defineConfig({
-  site: config.site.base_url ? config.site.base_url : 'http://examplesite.com',
-  base: config.site.base_path ? config.site.base_path : '/',
+  site: config.site.base_url || 'http://examplesite.com',
+  base: config.site.base_path || '/',
   trailingSlash: config.site.trailing_slash ? 'always' : 'never',
   output: 'hybrid',
   integrations: [
@@ -38,7 +39,7 @@ export default defineConfig({
       ],
     }),
     mdx(),
-    // Remove vercel() if it's causing issues
+    vercel(), // Ensure this is correctly integrated
   ],
   markdown: {
     remarkPlugins: [
