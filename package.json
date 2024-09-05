@@ -2,7 +2,7 @@
   "name": "T4T",
   "version": "2.0.0",
   "description": "Astro and Tailwindcss boilerplate",
-  "author": "YossriMelki",
+  "author": "MelkiYossri",
   "license": "MIT",
   "packageManager": "yarn@1.22.19",
   "scripts": {
@@ -18,7 +18,7 @@
     "@astrojs/rss": "^4.0.4",
     "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^2.10.15",
+    "astro": "^4.3.2",
     "astro-auto-import": "^0.4.2",
     "astro-font": "^0.0.77",
     "date-fns": "^3.3.1",
