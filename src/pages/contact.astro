@@ -4,6 +4,7 @@ import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
 import { getEntryBySlug } from "astro:content";
+import { markdownify } from "@/lib/utils/textConverter";
 
 const entry = await getEntryBySlug("contact", "index");
 const { contact_form_action } = config.params;
@@ -46,16 +47,16 @@ const page_data = {
           method="POST"
         >
           <div class="form-group mb-5">
-            <label class="form-label" for="reason">Reason/Purpose</label>
+            <label data-translate="Reason/Purpose" class="form-label" for="reason">{markdownify("Reason/Purpose")}</label>
             <select name="reason" id="reason" class="form-select" required>
-              <option value="">Select reason/purpose</option>
-              <option value="Reclamation">Reclamation</option>
-              <option value="Asking">Asking</option>
-              <option value="Other">Other</option>
+              <option data-translate="Reason/Purpose" value="">{markdownify("Select reason/purpose")}</option>
+              <option data-translate="Reclamation" value="Reclamation">{markdownify("Reclamation")}</option>
+              <option data-translate="Asking" value="Asking">{markdownify("Asking")}</option>
+              <option data-translate="Other" value="Other">{markdownify("Other")}</option>
             </select>
           </div>
           <div class="form-group mb-5">
-            <label class="form-label" for="name">Full Name</label>
+            <label data-translate="Full Name" class="form-label" for="name">{markdownify("Full Name")}</label>
             <input
               class="form-control"
               type="text"
@@ -66,7 +67,7 @@ const page_data = {
             />
           </div>
           <div class="form-group mb-5">
-            <label class="form-label" for="email">Email Address</label>
+            <label data-translate="Email Address" class="form-label" for="email">{markdownify("Email Address")}</label>
             <input
               class="form-control"
               type="email"
@@ -77,7 +78,7 @@ const page_data = {
             />
           </div>
           <div class="form-group mb-5">
-            <label class="form-label" for="message">Message</label>
+            <label data-translate="Message" class="form-label" for="message">{markdownify("Message")}</label>
             <textarea
               class="form-control h-[150px]"
               name="message"
@@ -87,7 +88,7 @@ const page_data = {
               required
             ></textarea>
           </div>
-          <input
+          <input data-translate="Send Message"
             class="btn btn-primary block w-full"
             type="submit"
             value="Send Message"

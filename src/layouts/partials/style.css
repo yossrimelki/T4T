@@ -1,0 +1,16 @@
+.language-selector {
+    background-color: #ffffff; /* Or whatever background color matches your theme */
+    border: 1px solid #ddd; /* Border styling */
+    border-radius: 40px; /* Rounded corners */
+    
+    padding: 0.5rem; /* Padding */
+    font-size: 1rem; /* Font size */
+    margin-right: 1rem; /* Space between the selector and the button */
+    cursor: pointer; /* Pointer cursor */
+  }
+  
+  .language-selector:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #007bff; /* Highlight border color on focus */
+  }
+  

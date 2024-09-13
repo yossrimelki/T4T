@@ -4,6 +4,7 @@ import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
 import { Image } from "astro:assets";
 import { getEntryBySlug } from "astro:content";
+import { markdownify } from "@/lib/utils/textConverter";
 
 const entry = await getEntryBySlug("getstarted", "index");
 const { contact_form_action } = config.params;
@@ -45,31 +46,31 @@ const page_data = {
             enctype="multipart/form-data"
           >
             <div class="form-group mb-5">
-              <label class="form-label" for="reason">Areas</label>
+              <label data-translate="Areas" class="form-label" for="reason">{markdownify("Areas")}</label>
               <select name="reason" id="reason" class="form-select" required>
-                <option value="">Select Areas</option>
-                <option value="government">Government</option>
-                <option value="organization">Organization</option>
-                <option value="education">Education</option>
-                <option value="media">Media</option>
-                <option value="legal-business">Legal & Business</option>
-                <option value="science-technology">Science & Technology</option>
+                <option data-translate="Areas" value="">{markdownify("Select Areas")}</option>
+                <option data-translate="Government" value="government">{markdownify("Government")}</option>
+                <option data-translate="Organization" value="organization">{markdownify("Organization")}</option>
+                <option data-translate="Education" value="education">{markdownify("Education")}</option>
+                <option data-translate="Media" value="media">{markdownify("Media")}</option>
+                <option data-translate="Legal&Business" value="legal-business">{markdownify("Legal & Business")}</option>
+                <option data-translate="Science & Technology" value="science-technology">{markdownify("Science & Technology")}</option>
               </select>
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="service">Service</label>
+              <label data-translate="Services" class="form-label" for="service">{markdownify("Service")}</label>
               <select name="service" id="service" class="form-select" required>
-                <option value="">Select Service</option>
-                <option value="documents">Documents</option>
-                <option value="interpretation">Interpretation</option>
-                <option value="localization">Localization</option>
-                <option value="sign-language">Sign Language</option>
-                <option value="authentication">Authentication</option>
+                <option data-translate="Services" value="">{markdownify("Select Service")}</option>
+                <option data-translate="Document" value="documents">{markdownify("Document")}</option>
+                <option data-translate="Interpretation" value="interpretation">{markdownify("Interpretation")}</option>
+                <option data-translate="Localization" value="localization">{markdownify("Localization")}</option>
+                <option data-translate="Sign Language"  value="sign-language">{markdownify("Sign Language")}</option>
+                <option data-translate="Authentication" value="authentication">{markdownify("Authentication")}</option>
               </select>
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="name">Full Name</label>
-              <input
+              <label data-translate="Full Name" class="form-label" for="name">{markdownify("Full Name")}</label>
+              <input data-translate="Your Full Name"
                 class="form-control"
                 type="text"
                 id="name"
@@ -79,7 +80,7 @@ const page_data = {
               />
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="email">Email Address</label>
+              <label data-translate="Email Addres" class="form-label" for="email">{markdownify("Email Addres")}s</label>
               <input
                 class="form-control"
                 type="email"
@@ -90,7 +91,7 @@ const page_data = {
               />
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="message">Message Here</label>
+              <label data-translate="Message Here" class="form-label" for="message">{markdownify("Message Here")}</label>
               <textarea
                 class="form-control h-[150px]"
                 id="message"
@@ -101,7 +102,7 @@ const page_data = {
               ></textarea>
             </div>
             <div class="form-group mb-5">
-              <label class="form-label" for="file">Upload Files</label>
+              <label data-translate="Upload Files" class="form-label" for="file">{markdownify("Upload Files")}</label>
               <div class="file-upload-wrapper">
                 <input
                   class="file-upload-input"
@@ -111,8 +112,8 @@ const page_data = {
                   multiple
                   hidden
                 />
-                <button type="button" class="file-upload-btn" onclick="document.getElementById('file').click()">
-                  Choose Files
+                <button data-translate="Choose Files" type="button" class="file-upload-btn" onclick="document.getElementById('file').click()">
+                  {markdownify("Choose Files")}
                 </button>
                 <span id="file-chosen" class="file-chosen">No file chosen</span>
               </div>

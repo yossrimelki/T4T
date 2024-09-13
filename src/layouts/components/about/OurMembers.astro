@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { markdownify } from "@/lib/utils/textConverter";
 const {
   members: { title, description, member_list },
 } = Astro.props;
@@ -9,9 +10,9 @@ const {
   <div class="container">
     <div class="row">
       <div class="mx-auto text-center lg:col-6">
-        <h2>{title}</h2>
-        <p class="mt-4">
-          {description}
+        <h2 data-translate={title}>{markdownify(title)}</h2>
+        <p data-translate={title+"-content"} class="mt-4">
+          {markdownify(description)}
         </p>
       </div>
     </div>

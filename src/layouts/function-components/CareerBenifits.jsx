@@ -1,15 +1,11 @@
 import * as Icon from "react-feather";
 import { humanize } from "@/lib/utils/textConverter";
+import { markdownify } from "@/lib/utils/textConverter";
 const CareerBenifits = ({ benifits: { title, description, benifit_list } }) => {
   return (
     <section className="section">
       <div className="container">
-        <div className="row">
-          <div className="mx-auto text-center lg:col-8">
-            <h2>{title}</h2>
-            <p className="mt-4">{description}</p>
-          </div>
-        </div>
+        
         <div className="row mt-14 text-center">
           {benifit_list.map((item, i) => {
             const FeatherIcon = Icon[humanize(item.icon)];
@@ -35,8 +31,8 @@ const CareerBenifits = ({ benifits: { title, description, benifit_list } }) => {
                     <FeatherIcon color={item.color} size={48} />
                   </span>
                 </div>
-                <h3 className="h4 mb-4 mt-8">{item.title}</h3>
-                <p>{item.content}</p>
+                <h3 data-translate={item.title} className="h4 mb-4 mt-8">{markdownify(item.title)}</h3>
+                <p data-translate={item.title+"-content"}>{markdownify(item.content)}</p>
               </div>
             );
           })}

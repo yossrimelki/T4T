@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { markdownify } from "@/lib/utils/textConverter";
 const {
   features: { title, button, features_list },
 } = Astro.props;
@@ -9,7 +10,7 @@ const {
   <div class="container">
     <div class="row items-center justify-between">
       <div class="md:col-5">
-        <h2 class="text-center md:text-left" set:html={title} />
+        <h2 data-translate={title} class="text-center md:text-left" set:html={title} />
       </div>
      
     </div>
@@ -29,8 +30,8 @@ const {
                   alt=""
                 />
               </div>
-              <h4 class="my-6">{item.title}</h4>
-              <p>{item.content}</p>
+              <h4 data-translate={item.title} class="my-6">{markdownify(item.title)}</h4>
+              <p data-translate={item.title+"-content"}>{markdownify(item.content)}</p>
             </div>
           </div>
         ))

@@ -2,10 +2,12 @@
 import HomepageTab from "@/layouts/function-components/HomepageTab";
 import VideoComponent from "@/layouts/function-components/VideoComponent";
 import { AiFillCheckCircle } from "react-icons/ai";
+import { markdownify } from "@/lib/utils/textConverter";
 import { Image } from "astro:assets";
 const { service } = Astro.props;
 const { homepage_tab, our_service } = service;
 ---
+
 
 <section class="section services">
   <div class="container">
@@ -37,7 +39,7 @@ const { homepage_tab, our_service } = service;
                 client:load
                 src={item.video.thumbnail}
                 height={370}
-                width={700}
+                width={700} 
                 title={item.title}
                 video_id={item.video.video_id}
                 video_width="w-[700px]"
@@ -51,8 +53,8 @@ const { homepage_tab, our_service } = service;
             }`}
           >
             <div class="text-container">
-              <h2 class="lg:text-4xl">{item.title}</h2>
-              <p class="mt-4">{item.description}</p>
+              <h2 class="lg:text-4xl" data-translate={item.title}>{markdownify(item.title)}</h2>
+              <p class="mt-4" data-translate={item.title+".description"}>{markdownify(item.description)}</p>
               {item.button && item.button.enable && (
                 <a class="btn btn-white mt-6" href={item.button.link}>
                   {item.button.label}

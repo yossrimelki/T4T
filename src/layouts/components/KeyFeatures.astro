@@ -17,10 +17,10 @@ const { title, description, feature_list } = key_features;
   <div class="container">
     <div class="row justify-between text-center lg:text-start">
       <div class="lg:col-5">
-        <h2 set:html={markdownify(title)} />
+        <h2 data-translate={"SLanguages"} set:html={markdownify(title)} />
       </div>
       <div class="mt-6 lg:col-5 lg:mt-0">
-        <p set:html={markdownify(description)} />
+        <p data-translate="DLanguages" set:html={markdownify(description)} />
       </div>
     </div>
     <HomapageFeature feature_list={feature_list} client:load />

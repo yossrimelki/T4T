@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { humanize } from "@/lib/utils/textConverter";
 import { marked } from "marked";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { markdownify } from "@/lib/utils/textConverter";
 
 const IntegrateMedia = ({ integrations, categories }) => {
   const [tab, setTab] = useState("");
@@ -15,7 +16,7 @@ const IntegrateMedia = ({ integrations, categories }) => {
           <div className="lg:col-10">
             <ul className="integration-tab filter-list flex flex-wrap items-center justify-center">
               <li>
-                <span
+                <span data-translate="All-categories"
                   className={`filter-btn ${
                     !tab ? "filter-btn-active" : undefined
                   } btn btn-sm cursor-pointer`}
@@ -25,8 +26,8 @@ const IntegrateMedia = ({ integrations, categories }) => {
                 </span>
               </li>
               {categories.map((category, i) => (
-                <li key={`category-${i}`} onClick={() => setTab(category)}>
-                  <span
+                <li key={`category-${i}`} onClick={() => setTab(category)} >
+                  <span data-translate={category}
                     className={`filter-btn ${
                       tab === category ? "filter-btn-active" : undefined
                     } btn btn-sm cursor-pointer`}
@@ -48,16 +49,16 @@ const IntegrateMedia = ({ integrations, categories }) => {
                 <div className="integration-card-head flex items-center space-x-4">
                   <img src={item.data.image} alt="" />
                   <div>
-                    <h4 className="h4">{humanize(item.data.name)}</h4>
+                    <h4 data-translate={item.data.name} className="h4">{humanize(item.data.name)}</h4>
                     {item.data.categories.map((category, i) => (
-                      <span className="font-medium" key={i}>
+                      <span data-translate={category} className="font-medium" key={i}>
                         {humanize(category)}
                       </span>
                     ))}
                   </div>
                 </div>
                 <div className="my-5 border-y border-border py-5">
-                  <p
+                  <p data-translate="intro-service"
                     dangerouslySetInnerHTML={{
                       __html: marked.parseInline(
                         item.data.excerpt.slice(0, 80),
@@ -66,11 +67,11 @@ const IntegrateMedia = ({ integrations, categories }) => {
                   />
                 </div>
 
-                <a
+                <a data-translate="view-service"
                   className="group inline-flex items-center font-semibold text-dark hover:text-primary"
                   href={`/integrations/${item.slug}`}
                 >
-                  View integration
+                  {markdownify("View Service")}
                   <AiOutlineArrowRight className="ml-1.5 text-xl font-bold duration-300 group-hover:ml-3" />
                 </a>
               </div>

@@ -54,8 +54,7 @@ service:
     - title: Who We are?
       desctiption: T4Translation is a fully dedicated, professional translation portal operating worldwide. Itoffers a gamut of services basically translation and interpreting in addition to otherrelated services. It aims to provide timely, high-quality and affordable services toindividuals, businesses, international organizations and government institutions.
       image: "/images/2322713-removebg-preview.png"
-      list:
-        - T4Translation is a fully dedicated, professional translation portal operating worldwide. Itoffers a gamut of services basically translation and interpreting in addition to otherrelated services. It aims to provide timely, high-quality and affordable services toindividuals, businesses, international organizations and government institutions.
+     
     - title: "Mission:"
       description: To facilitate smooth interaction and serve as a reliable linguistic bridge and mediator between individuals, communities, businesses, institutions, international organizations,etc.
       video:

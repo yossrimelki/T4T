@@ -27,7 +27,7 @@
     },
     {
       "name": "Areas",
-      "url": "",
+      "url": "/career",
       "hasChildren": true,
       "children": [
         {
@@ -103,16 +103,16 @@
       "url": "/about"
     },
     {
-      "name": "Contact",
+      "name": "Contact Us",
       "url": "/contact"
     },
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Areas",
+      "url": "/career"
     },
     {
-      "name": "Changelog",
-      "url": "/changelog"
+      "name": "Services",
+      "url": "/integrations"
     }
   ]
 }

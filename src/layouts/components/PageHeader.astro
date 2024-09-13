@@ -41,14 +41,14 @@ const { title, index_title, page_title, slug, content } = page_data || {};
       }
     </li>
   </ul>
-  <h1
-    class="mb-5 mt-8"
+  <h1 data-translate={title+"-title"}
+    class="mb-5 mt-8" 
     set:html={markdownify(
       page_data?.page_title ? page_data?.page_title : page_data?.title
     )}
   />
-  <p set:html={markdownify(content)} />
-
+  <p data-translate={title+"-content"} set:html={markdownify(content)} />
+  
   {
     page_data.buttons && (
       <div class="mt-11 justify-center sm:flex">

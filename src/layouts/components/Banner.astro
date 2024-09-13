@@ -9,9 +9,9 @@ const { title, button, image, content } = banner;
   <div class="container">
     <div class="row items-center">
       <div class="lg:col-6">
-        <h1 class="banner-title" set:html={markdownify(title)} />
+        <h1  data-translate="banner-title" class="banner-title" set:html={markdownify(title)} />
 
-        <p class="mt-6" set:html={markdownify(content)} />
+        <p class="mt-6"data-translate="banner-content" set:html={markdownify(content)} />
 
         {
           button.enable && (

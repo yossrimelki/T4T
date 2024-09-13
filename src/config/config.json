@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "T4 Translation",
-    "base_url": "https://pinwheel-astro.vercel.app",
+    "base_url": "https://t4t-seven.vercel.app/",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
@@ -21,7 +21,7 @@
     "title": "Feel Free with our teams,we all here for you.",
     "description": "At T4Translation, we’re committed to providing exceptional translation services with a personal touch. Our diverse and experienced team is always ready to assist you, ensuring that every detail is handled with care and precision. Whether you need help with a project or have questions, feel free to reach out—we’re here to make your experience smooth and stress-free. Contact us today, and let us be the bridge to your success.",
     "button": {
-      "label": "Get Started Now",
+      "label": "Get Started",
       "link": "/getstarted"
     }
   },
