@@ -1,22 +1,15 @@
 ---
+// Importing components and configuration
 import Logo from "@/components/Logo.astro";
 import menu from "@/config/menu.json";
+import "@/partials/style.css";
 
-export interface ChildNavigationLink {
-  name: string;
-  url: string;
-}
 
-export interface NavigationLink {
-  name: string;
-  url: string;
-  hasChildren?: boolean;
-  children?: ChildNavigationLink[];
-}
-
-const { main }: { main: NavigationLink[] } = menu;
+const { main } = menu;
 const { pathname } = Astro.url;
 ---
+
+
 
 <header class="header">
   <nav class="navbar container">
@@ -24,6 +17,7 @@ const { pathname } = Astro.url;
     <div class="order-0">
       <Logo />
     </div>
+
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
@@ -45,101 +39,112 @@ const { pathname } = Astro.url;
         <title>Menu Close</title>
         <polygon
           points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-          transform="rotate(45 10 10)"></polygon>
+          transform="rotate(45 10 10)"
+        ></polygon>
       </svg>
     </label>
-    <!-- /navbar toggler -->
 
+    <!-- Navbar Links -->
     <ul
       id="nav-menu"
       class="navbar-nav order-3 hidden w-full lg:order-1 lg:flex lg:w-auto lg:space-x-2"
     >
       {
         main.map((menu) => (
-          <>
+          <li class="nav-item">
             {menu.hasChildren ? (
-              <li class="nav-item nav-dropdown group relative cursor-pointer  dropdown-button">
+              <div class="nav-dropdown group relative cursor-pointer">
                 <span
                   class={`nav-link inline-flex items-center ${
                     menu.children?.map(({ url }) => url).includes(pathname) ||
-                    menu.children
-                      ?.map(({ url }) => `${url}/`)
-                      .includes(pathname)
+                    menu.children?.map(({ url }) => `${url}/`).includes(pathname)
                       ? "active"
                       : ""
                   }`}
                 >
-                  {menu.name}
+                  <span data-translate={menu.name}>{menu.name}</span>
                   <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
                     <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                   </svg>
                 </span>
-                <ul
-                  id="dropdown"
-                  class="nav-dropdown-list mx-auto hidden duration-300 lg:invisible lg:absolute lg:block lg:h-auto lg:w-[13.5rem] lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100"
-                >
+                <ul class="nav-dropdown-list hidden absolute bg-white duration-300 opacity-0 group-hover:visible group-hover:opacity-100">
                   {menu.children?.map((child) => (
                     <li class="nav-dropdown-item">
                       <a
                         href={child.url}
                         class={`nav-dropdown-link block ${
-                          (pathname === `${child.url}/` ||
-                            pathname === child.url) &&
-                          "text-primary"
+                          (pathname === `${child.url}/` || pathname === child.url) && "text-primary"
                         }`}
                       >
-                        {child.name}
+                        <span data-translate={child.name}>{child.name}</span>
                       </a>
                     </li>
                   ))}
                 </ul>
-              </li>
+              </div>
             ) : (
-              <li class="nav-item">
-                <a
-                  href={menu.url}
-                  class={`nav-link inline-block lg:block ${
-                    (pathname === `${menu.url}/` || pathname === menu.url) &&
-                    "active"
-                  }`}
-                >
-                  {menu.name}
-                </a>
-              </li>
+              <a
+                href={menu.url}
+                class={`nav-link inline-block lg:block ${
+                  (pathname === `${menu.url}/` || pathname === menu.url) && "active"
+                }`}
+              >
+                <span data-translate={menu.name}>{menu.name}</span>
+              </a>
             )}
-          </>
+          </li>
         ))
       }
       <li class="nav-item mt-2 lg:hidden">
         <a class="btn btn-white btn-sm border-border" href="/getstarted">
-          Get Started Now</a
-        >
+          <span data-translate="Get Started Now">Get Started Now</span>
+        </a>
       </li>
     </ul>
-    <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 lg:flex">
-      <a class="btn btn-white btn-sm" href="/getstarted"> Get Started Now</a>
+
+    <div class="order-1 ml-auto hidden items-center md:order-2 md:ml-0 lg:flex lg:space-x-2">
+      <!-- Language selector -->
+      <select class="language-selector" aria-label="Select Language">
+        <option value="en">English</option>
+        <option value="ar">Arabic</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+      </select>
+      <a class="btn btn-white btn-sm" href="/getstarted">
+        <span data-translate="Get Started Now">Get Started Now</span>
+      </a>
     </div>
   </nav>
 </header>
 
+<script  src="../../scripts/translate.js"></script>
+
 <script is:inline>
-  document.querySelectorAll(".dropdown-button").forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const dropdown = e.target.nextElementSibling;
-      dropdown.classList.toggle(
-        dropdown.style === "hidden" ? "block" : "hidden"
-      );
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const dropdown = e.currentTarget.nextElementSibling;
+      if (dropdown && dropdown.classList.contains("nav-dropdown-list")) {
+        dropdown.classList.toggle("hidden");
+        // Close other dropdowns if needed
+        document.querySelectorAll(".nav-dropdown-list").forEach((item) => {
+          if (item !== dropdown) {
+            item.classList.add("hidden");
+          }
+        });
+      }
     });
   });
 
-  //sticky header
+  // Sticky navbar with background color change
   document.addEventListener("astro:page-load", () => {
     const header = document.querySelector(".header");
     window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
         header.classList.add("header-sticky");
+        header.style.backgroundColor = "white";
       } else {
         header.classList.remove("header-sticky");
+        header.style.backgroundColor = "transparent";
       }
     });
   });
